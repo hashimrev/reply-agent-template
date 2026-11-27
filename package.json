@@ -1,0 +1,17 @@
+{
+  "name": "reply-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen:knowledge": "node gen-knowledge.mjs",
+    "dev": "npx trigger.dev@4.8.3 dev",
+    "deploy": "npm run gen:knowledge && npx trigger.dev@4.8.3 deploy",
+    "typecheck": "tsc --noEmit",
+    "test:render": "npx tsx test/render.ts",
+    "test:instantly": "npx tsx test/instantly.mts",
+    "test": "npm run typecheck && npm run test:render && npm run test:instantly"
+  },
+  "dependencies": { "@trigger.dev/sdk": "4.8.3" },
+  "devDependencies": { "typescript": "^5.5.0", "@types/node": "^22.0.0", "tsx": "^4.19.0" }
+}
